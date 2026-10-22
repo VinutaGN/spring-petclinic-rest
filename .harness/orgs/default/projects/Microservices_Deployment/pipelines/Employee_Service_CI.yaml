@@ -37,17 +37,9 @@ pipeline:
 
               ls -la\r
 
-              echo \"Checking Java\"\r
-
               java -version\r
 
-              echo \"Checking Maven Wrapper\"\r
-
-              ls -l ./mvnw\r
-
-              chmod +x ./mvnw\r
-
-              ./mvnw -B clean test package"
+              mvn -version"
         - id: testLinux
           name: Test on Linux
           run-test:
