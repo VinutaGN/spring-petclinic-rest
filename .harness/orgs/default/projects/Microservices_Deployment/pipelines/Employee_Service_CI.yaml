@@ -33,11 +33,19 @@ pipeline:
             shell: bash
             script: "echo \"Starting Spring PetClinic CI pipeline\"\r
 
+              echo \"Checking current directory\"\r
+
               pwd\r
+
+              echo \"Listing files\"\r
 
               ls -la\r
 
+              echo \"Checking Java\"\r
+
               java -version\r
+
+              echo \"Checking Maven\"\r
 
               mvn -version"
         - id: testLinux
