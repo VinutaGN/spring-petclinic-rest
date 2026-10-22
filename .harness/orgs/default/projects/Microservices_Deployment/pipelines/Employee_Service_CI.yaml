@@ -31,13 +31,9 @@ pipeline:
           name: Build on Linux
           run:
             shell: bash
-            script: "echo \"Starting Spring PetClinic CI pipeline\"\r
-
-              echo \"Checking current directory\"\r
+            script: "echo \"Starting Spring PetClinic build\"\r
 
               pwd\r
-
-              echo \"Listing files\"\r
 
               ls -la\r
 
@@ -47,38 +43,35 @@ pipeline:
 
               echo \"Checking Maven\"\r
 
-              mvn -version"
+              mvn -version\r
+
+              echo \"Checking Maven Wrapper\"\r
+
+              ls -l mvnw\r
+
+              echo \"Building application and running tests\"\r
+
+              bash ./mvnw -B clean test package"
         - id: testLinux
           name: Test on Linux
           run-test:
             shell: bash
-            script: "echo \"Starting Spring PetClinic tests\"\r
-
-              \r
+            script: "echo \"Checking test execution environment\"\r
 
               pwd\r
 
-              \r
-
               ls -la\r
-
-              \r
 
               echo \"Checking Maven Wrapper\"\r
 
               ls -l ./mvnw\r
 
-              \r
+              echo \"Checking test reports\"\r
 
-              echo \"Checking Java\"\r
+              find target/surefire-reports -maxdepth 1 -type f -print
+              2>/dev/null || true\r
 
-              java -version\r
-
-              \r
-
-              echo \"Running tests\"\r
-
-              bash ./mvnw -B test"
+              echo \"Test stage diagnostics complete\""
             intelligence:
               disabled: true
         - id: coverage
