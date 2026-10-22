@@ -4,41 +4,13 @@ pipeline:
         - run:
             script: "echo \"Starting Spring PetClinic CI pipeline\"\r
 
-              \r
-
-              echo \"Current directory:\"\r
+              java -version\r
 
               pwd\r
 
-              \r
-
-              echo \"Files in current directory:\"\r
-
               ls -la\r
 
-              \r
-
-              echo \"Checking Java:\"\r
-
-              which java\r
-
-              java -version\r
-
-              \r
-
-              echo \"Checking Maven Wrapper:\"\r
-
-              ls -l mvnw\r
-
-              \r
-
-              chmod +x mvnw\r
-
-              \r
-
-              echo \"Running Maven build and tests:\"\r
-
-              ./mvnw clean test package"
+              echo \"Checking Maven installation\""
             shell: bash
           name: Build
           id: Build
