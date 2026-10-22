@@ -52,7 +52,33 @@ pipeline:
           name: Test on Linux
           run-test:
             shell: bash
-            script: ./mvnw -B test
+            script: "echo \"Starting Spring PetClinic tests\"\r
+
+              \r
+
+              pwd\r
+
+              \r
+
+              ls -la\r
+
+              \r
+
+              echo \"Checking Maven Wrapper\"\r
+
+              ls -l ./mvnw\r
+
+              \r
+
+              echo \"Checking Java\"\r
+
+              java -version\r
+
+              \r
+
+              echo \"Running tests\"\r
+
+              bash ./mvnw -B test"
             intelligence:
               disabled: true
         - id: coverage
