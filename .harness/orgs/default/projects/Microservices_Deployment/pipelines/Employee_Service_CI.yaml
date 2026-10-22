@@ -4,11 +4,21 @@ pipeline:
         - run:
             script: "echo \"Starting Spring PetClinic CI pipeline\"\r
 
+              \r
+
               java -version\r
 
-              chmod +x mvnw\r
+              \r
 
-              ./mvnw clean test package"
+              pwd\r
+
+              ls -la\r
+
+              \r
+
+              echo \"Checking Maven installation\"\r
+
+              mvn -version"
             shell: bash
           name: Build
           id: Build
