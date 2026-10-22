@@ -31,9 +31,7 @@ pipeline:
           name: Build on Linux
           run:
             shell: bash
-            script: "```bash\r
-
-              echo \"Starting Spring PetClinic CI pipeline\"\r
+            script: "echo \"Starting Spring PetClinic CI pipeline\"\r
 
               \r
 
@@ -71,9 +69,7 @@ pipeline:
 
               \    exit 1\r
 
-              fi\r
-
-              ```"
+              fi"
         - id: testLinux
           name: Test on Linux
           run-test:
