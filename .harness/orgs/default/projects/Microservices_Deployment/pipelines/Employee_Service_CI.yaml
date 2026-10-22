@@ -6,19 +6,39 @@ pipeline:
 
               \r
 
-              java -version\r
+              echo \"Current directory:\"\r
+
+              pwd\r
 
               \r
 
-              pwd\r
+              echo \"Files in current directory:\"\r
 
               ls -la\r
 
               \r
 
-              echo \"Checking Maven installation\"\r
+              echo \"Checking Java:\"\r
 
-              mvn -version"
+              which java\r
+
+              java -version\r
+
+              \r
+
+              echo \"Checking Maven Wrapper:\"\r
+
+              ls -l mvnw\r
+
+              \r
+
+              chmod +x mvnw\r
+
+              \r
+
+              echo \"Running Maven build and tests:\"\r
+
+              ./mvnw clean test package"
             shell: bash
           name: Build
           id: Build
