@@ -33,43 +33,21 @@ pipeline:
             shell: bash
             script: "echo \"Starting Spring PetClinic CI pipeline\"\r
 
-              \r
-
-              echo \"Current directory:\"\r
-
               pwd\r
-
-              \r
-
-              echo \"Files in current directory:\"\r
 
               ls -la\r
 
-              \r
-
-              echo \"Checking Java:\"\r
+              echo \"Checking Java\"\r
 
               java -version\r
 
-              \r
+              echo \"Checking Maven Wrapper\"\r
 
-              echo \"Checking Maven Wrapper:\"\r
+              ls -l ./mvnw\r
 
-              if [ -f \"./mvnw\" ]; then\r
+              chmod +x ./mvnw\r
 
-              \    echo \"Maven Wrapper found\"\r
-
-              \    chmod +x ./mvnw\r
-
-              \    ./mvnw clean test package\r
-
-              else\r
-
-              \    echo \"Maven Wrapper not found in the current directory\"\r
-
-              \    exit 1\r
-
-              fi"
+              ./mvnw -B clean test package"
         - id: testLinux
           name: Test on Linux
           run-test:
