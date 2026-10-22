@@ -39,9 +39,49 @@ pipeline:
           name: Build on Linux
           run:
             shell: bash
-            script: "chmod +x mvnw\r
+            script: "```bash\r
 
-              ./mvnw -B clean package"
+              echo \"Starting Spring PetClinic CI pipeline\"\r
+
+              \r
+
+              echo \"Current directory:\"\r
+
+              pwd\r
+
+              \r
+
+              echo \"Files in current directory:\"\r
+
+              ls -la\r
+
+              \r
+
+              echo \"Checking Java:\"\r
+
+              java -version\r
+
+              \r
+
+              echo \"Checking Maven Wrapper:\"\r
+
+              if [ -f \"./mvnw\" ]; then\r
+
+              \    echo \"Maven Wrapper found\"\r
+
+              \    chmod +x ./mvnw\r
+
+              \    ./mvnw clean test package\r
+
+              else\r
+
+              \    echo \"Maven Wrapper not found in the current directory\"\r
+
+              \    exit 1\r
+
+              fi\r
+
+              ```"
         - id: testLinux
           name: Test on Linux
           run-test:
